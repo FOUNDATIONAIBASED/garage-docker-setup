@@ -77,11 +77,11 @@ EOF
 }
 
 compose_up() {
-  docker-compose up -d --build && log "Services started." || error "Startup failed."
+  sudo docker compose up -d --build && log "Services started." || error "Startup failed."
 }
 
 compose_down() {
-  docker-compose down && log "Services stopped." || error "Stop failed."
+  sudo docker compose down && log "Services stopped." || error "Stop failed."
 }
 
 garage_exec() {
