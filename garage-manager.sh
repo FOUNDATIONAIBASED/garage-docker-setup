@@ -85,7 +85,7 @@ compose_down() {
 }
 
 garage_exec() {
-  docker exec ${CONTAINER_NAME} /usr/local/bin/garage "$@"
+  sudo docker exec ${CONTAINER_NAME} /usr/local/bin/garage "$@"
 }
 
 configure_cluster() {
@@ -116,14 +116,14 @@ main_setup() {
 }
 
 show_status() {
-  docker-compose ps
+  sudo docker compose ps
   echo -e "${CYAN}Cluster Status:${NC}"
   garage_exec status
   pause
 }
 
 show_logs() {
-  docker-compose logs --tail=50 ${CONTAINER_NAME}
+  sudo docker compose logs --tail=50 ${CONTAINER_NAME}
   pause
 }
 
