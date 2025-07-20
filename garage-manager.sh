@@ -14,7 +14,7 @@ error() { echo -e "${RED}[ERROR]${NC} $1"; }
 pause() { echo -e "${YELLOW}Press any key to continue...${NC}"; read -n 1 -s; }
 
 check_requirements() {
-  command -v docker-compose &>/dev/null || { error "docker-compose not installed"; exit 1; }
+  command -v sudo docker compose &>/dev/null || { error "docker-compose not installed"; exit 1; }
 }
 
 generate_compose_file() {
